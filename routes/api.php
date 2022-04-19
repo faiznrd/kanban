@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\V1\AuthController;
 use App\Http\Controllers\V1\BoardController;
+use App\Http\Controllers\V1\BoardListController;
+
 
 
 /*
@@ -23,6 +25,11 @@ Route::prefix('v1')->group(function () {
     });
     Route::prefix('board')->group(function () {
         Route::post('/', [BoardController::class, 'create']);
+        Route::get('/', [BoardController::class, 'getAllBoards']);
+        Route::get('/{id}', [BoardController::class, 'getBoardDetail']);
+        Route::post('/{board_id}/list', [BoardListController::class, 'create']);
+        Route::put('/{board_id}/list', [BoardListController::class, 'update']);
+
     });
 });
 

@@ -14,4 +14,8 @@ class BoardList extends Model
         'order',
         'board_id'
     ];
+
+    public function cards(){
+        return $this->hasMany(Card::class, 'list_id');
+    }
 }

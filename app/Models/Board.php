@@ -13,4 +13,12 @@ class Board extends Model
         'name',
         'creator_id'
     ];
+
+    public function members(){
+        return $this->belongsToMany(User::class, 'board_members');
+    }
+
+    public function lists(){
+        return $this->hasMany(BoardList::class, 'board_id');
+    }
 }

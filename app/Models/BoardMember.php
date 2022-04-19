@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Card extends Model
+class BoardMember extends Model
 {
     use HasFactory;
-    protected $table = 'cards';
+    protected $table = 'board_members';
     protected $fillable = [
-        'name',
-        'creator_id'
+        'user_id', 'board_id'
     ];
 }

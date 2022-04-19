@@ -62,4 +62,7 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+    public function boards(){
+        return $this->belongsToMany(Board::class, 'board_members');
+    }
 }
