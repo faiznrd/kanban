@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\V1\AuthController;
 use App\Http\Controllers\V1\BoardController;
 use App\Http\Controllers\V1\BoardListController;
+use App\Http\Controllers\V1\CardController;
+
 
 
 
@@ -28,7 +30,9 @@ Route::prefix('v1')->group(function () {
         Route::get('/', [BoardController::class, 'getAllBoards']);
         Route::get('/{id}', [BoardController::class, 'getBoardDetail']);
         Route::post('/{board_id}/list', [BoardListController::class, 'create']);
-        Route::put('/{board_id}/list', [BoardListController::class, 'update']);
+        Route::put('/{board_id}/list/{list_id}', [BoardListController::class, 'update']);
+        Route::post('/{board_id}/list/{list_id}/card', [CardController::class, 'create']);
+
 
     });
 });
